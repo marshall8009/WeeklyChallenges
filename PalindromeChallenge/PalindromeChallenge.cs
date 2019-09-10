@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 
 namespace PalindromeChallenge
 {
@@ -22,6 +23,16 @@ namespace PalindromeChallenge
             {
                 Console.WriteLine($"{ str } is not  palindrome.");
             }
+        }
+
+        public static void LinqPalindrome(string str)
+        {
+            str = str.ToLower();
+
+            string oldStr = new string(str.Where(x => char.IsLetterOrDigit(x)).ToArray());
+            string newStr = new string(str.Where(x => char.IsLetterOrDigit(x)).Reverse().ToArray());
+
+            return newStr == oldStr;
         }
     }
 }
